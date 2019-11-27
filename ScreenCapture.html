@@ -203,8 +203,16 @@ var takeScreenshot = {
 							newWindow = window.open();
 							newWindow.document.write("<style type='text/css'>body {margin: 0;}</style>");
 							newWindow.document.write("<img src='" + self.screenshotCanvas.toDataURL("image/png") + "'/>");
-
-
+                                                        
+      var dat = new Date();
+      var a2 = document.createElement("a");
+      a2.href = self.screenshotCanvas.toDataURL("image/png");
+      a2.download = dat.toString() + "_MRTG.png";
+      a2.hidden = true;
+      document.body.appendChild(a2);
+      a2.innerHTML = "random";
+      a2.click();
+							
 						} else {
 							self.scrollTo(position + self.scrollBy);
 						}
